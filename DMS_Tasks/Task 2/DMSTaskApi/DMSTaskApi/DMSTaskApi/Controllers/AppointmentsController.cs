@@ -96,7 +96,7 @@ namespace DMSTaskApi.Controllers
 
             return Ok(appointments);
         }
-        [HttpPost("DeleteAppointment/{appointmentId}")]
+        [HttpPatch("UpdateAppointmentStatus/{appointmentId}")]
         public async Task<IActionResult> UpdateAppointmentStatus(int appointmentId)
         {
             var appointment = await _context.Appointments.FirstOrDefaultAsync(a => a.AppointmentId == appointmentId);
@@ -109,7 +109,7 @@ namespace DMSTaskApi.Controllers
             appointment.Status = 1;
             await _context.SaveChangesAsync();
 
-            return Ok("Appointment status updated successfully.");
+            return Ok();
         }
     }
 }

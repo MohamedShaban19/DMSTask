@@ -143,9 +143,9 @@ export class SecretaryAppointmentComponent implements OnInit {
     );
   }
 
-  deleteAppointment(appointmentId: number) {
+  updateAppointmentStatus(appointmentId: number) {
     if (confirm('Are you sure you want to delete this appointment?')) {
-      this.appointmentService.deleteAppointment(appointmentId).subscribe(
+      this.appointmentService.updateAppointmentStatus(appointmentId).subscribe(
         () => {
           this.loadAppointments();
         },

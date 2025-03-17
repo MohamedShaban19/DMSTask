@@ -33,9 +33,9 @@ export class SecretaryAppointmentService {
   getAppointments(): Observable<any> {
     return this.http.get(`${this.apiUrl}/appointments/LoadAppointments`);
   }
-  deleteAppointment(appointmentId: number): Observable<any> {
-    return this.http.post(
-      `${this.apiUrl}/appointments/DeleteAppointment/${appointmentId}`,
+  updateAppointmentStatus(appointmentId: number): Observable<any> {
+    return this.http.patch(
+      `${this.apiUrl}/appointments/UpdateAppointmentStatus/${appointmentId}`,
       {}
     );
   }
